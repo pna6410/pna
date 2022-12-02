@@ -8,7 +8,7 @@ import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import org.springframework.stereotype.Service;
 
 import com.pna.main.service.mainService;
-import com.pna.dto.mainManageDto;
+import com.pna.dto.menuManageDto;
 import com.pna.main.dao.mainDao;
 
 
@@ -19,9 +19,14 @@ public class mainServiceImpl extends EgovAbstractServiceImpl implements mainServ
 	private mainDao mainDao;
 	
 	/* @Override */
-	public List<mainManageDto> listUp() throws Exception {		
-		List<mainManageDto> list = mainDao.listUp();
+	public List<menuManageDto> listUp() throws Exception {		
+		List<menuManageDto> list = mainDao.listUp();
     	return list;
+	}
+
+	@Override
+	public List<menuManageDto> selectSideMenu(String userId) throws Exception {
+		return mainDao.selectSideMenu(userId);
 	}
 
 }

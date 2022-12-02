@@ -8,6 +8,13 @@
        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
 
+	<!-- egovMessageSource 사용하기 위해 추가 -->
+	<bean id="egovMessageSource" class="egovframework.example.cmmn.EgovMessageSource">
+        <property name="reloadableResourceBundleMessageSource">
+            <ref bean="messageSource" />
+        </property>
+    </bean>
+    
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames">
 			<list>

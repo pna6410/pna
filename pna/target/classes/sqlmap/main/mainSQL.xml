@@ -3,9 +3,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mainDaoSql">
 
-	<select id="listUp" resultType="com.pna.dto.mainManageDto">
+	<select id="listUp" resultType="com.pna.dto.menuManageDto">
 		select id, name
 		from test_db
 	</select>
 
+
+	<select id="selectSideMenu" parameterType="java.lang.String" resultType="com.pna.dto.menuManageDto">
+		SELECT LEVEL, A.MENU_ID, A.MENU_NAME, A.PARENT_MENU_ID, A.SORT_NO, A.SYSTEM_GRADE, A.PROGRAM_URL		
+		  FROM PNA_MENU A
+	     WHERE 1 = 1
+	     AND A.USE_YN = 'Y' 	
+ 		 AND A.PROJECT_ID IN (SELECT PROJECT_ID FROM PNA_USER_PROJECT WHERE USER_ID = #{value})	 
+		START WITH A.PARENT_MENU_ID = 0
+		CONNECT BY PRIOR A.MENU_ID = A.PARENT_MENU_ID
+		ORDER SIBLINGS BY A.SORT_NO
+	</select>
 </mapper>

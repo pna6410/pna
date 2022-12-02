@@ -61,4 +61,13 @@
 	<!-- /For Pagination Tag -->
 
     <mvc:view-controller path="/cmmn/validator.do" view-name="cmmn/validator"/>
+    
+    <!-- 인터셉터 -->
+   <mvc:interceptors>
+    	<mvc:interceptor>
+        	<mvc:mapping path="/**/*.do"/> <!-- 절대경로(/)부터 시작하면 중간경로가 있을 수 있기에 (**)으로 표시 -->
+        	<mvc:exclude-mapping path="/log*.do"/>        	
+        	<bean class="egovframework.example.cmmn.AuthenticInterceptor" />
+    	</mvc:interceptor>
+	</mvc:interceptors>
 </beans>
