@@ -18,5 +18,20 @@
 			</field>
         </form>
     </formset>
+    
+	<!--  -->
+    <formset>
+        <form name="pnauserDto">
+        	<field property="userId" depends="required">
+        		<arg0 key="pnauserDto.userId" />
+			</field>
+			<field property="userName" depends="required">
+                <arg0 key="pnauserDto.userName" />
+            </field>
+        	<field property="userGrade" depends="required">
+        		<arg0 key="pnauserDto.userGrade" />
+			</field>
+        </form>
+    </formset>
 
 </form-validation>

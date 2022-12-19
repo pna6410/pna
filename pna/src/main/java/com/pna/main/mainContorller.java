@@ -47,14 +47,16 @@ public class mainContorller {
 		
 		
 		model.addAttribute("pageUrl", "/test.jsp");
-		return "main";
+		//return "main";
+		return "test";
 	}
 	
 	@RequestMapping(value = "/test2.do")
 	public String test2(ModelMap model) throws Exception {
 		
 		model.addAttribute("pageUrl", "/test2.jsp");
-		return "main";
+		//return "main";
+		return "test2";
 	}
 
 }
