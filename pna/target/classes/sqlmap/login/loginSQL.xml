@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="loginDaoSql">
+
+	<select id="selectLoginCheck" parameterType="com.pna.dto.loginDto" resultType="java.lang.Integer">
+		SELECT COUNT(1) cnt 
+		FROM PNA_USER 
+		WHERE USER_ID = #{userId} 
+		AND USER_PW = MD5(#{userPw}) 
+		AND USE_YN = 'Y'
+	</select>
+
+	<select id="selectLoginInfo" parameterType="com.pna.dto.loginDto" resultType="com.pna.dto.loginDto">
+		SELECT USER_ID, USER_NAME, USER_PW, USER_GRADE
+		  FROM PNA_USER
+		 WHERE USER_ID = #{userId}
+		   AND USE_YN = 'Y'
+	</select>
+
+</mapper>

@@ -1,0 +1,35 @@
+@charset "UTF-8";
+.wrapper {
+   	display: flex;
+   	width: 100%;
+  	align-items: stretch;
+}
+#sidebar {
+   	min-width: 250px;
+   	max-width: 250px;
+   	transition: all 0.3s;
+   	margin-left: 0;
+}
+#sidebar.active {
+	margin-left: -250px;
+}
+
+
+
+#content {    
+   	width: 100%;
+   	padding: 20px;
+   	min-height: 100vh;
+   	transition: all 0.3s;
+    background: #ece6cc;    
+}
+   
+#page-content-wrapper {
+	width: auto;
+}
+
+.container{
+	margin: 0 !important;
+	padding: 0 !important;	
+   	width: 100%;
+}
